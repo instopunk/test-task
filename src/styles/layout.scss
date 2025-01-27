@@ -1,0 +1,107 @@
+.layout {
+  min-height: 100%;
+  display: grid;
+  grid-template-areas: "header" "content" "footer";
+  grid-template-rows: min-content 1fr min-content;
+  grid-template-columns: 100%;
+  gap: 24px;
+}
+
+.header {
+  grid-area: header;
+}
+
+.content {
+  grid-area: content;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.layout-container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 660px;
+  padding-inline: 8px;
+
+  @media (min-width: 960px) {
+    max-width: 960px;
+  }
+
+  @media (min-width: 1280px) {
+    max-width: 1280px;
+  }
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-areas: "main";
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  &:has(.left) {
+    @media (min-width: 960px) {
+      grid-template-areas: "left main";
+      grid-template-columns: 300px 1fr;
+    }
+  }
+
+  &:has(.right) {
+    @media (min-width: 1280px) {
+      grid-template-areas: "main right";
+      grid-template-columns: 1fr 300px;
+    }
+  }
+
+  &:not(:has(.left)):has(.right) {
+    @media (min-width: 960px) {
+      grid-template-areas: "main right";
+      grid-template-columns: 1fr 300px;
+    }
+  }
+
+  &:has(.left):has(.right) {
+    @media (min-width: 1280px) {
+      grid-template-areas: "left main right";
+      grid-template-columns: 300px 1fr 300px;
+    }
+  }
+}
+
+.main {
+  grid-area: main;
+}
+
+.left {
+  display: none;
+  grid-area: left;
+  @media (min-width: 960px) {
+    display: revert;
+  }
+}
+
+.right {
+  display: none;
+  grid-area: right;
+  @media (min-width: 960px) {
+    display: revert;
+  }
+}
+
+.left ~ .right {
+  display: none;
+  @media (min-width: 1280px) {
+    display: revert;
+  }
+}
+
+.layout-section--compact {
+  padding-inline: 20px;
+}
+
+.layout-section {
+  & + & {
+    margin-top: 24px;
+  }
+}

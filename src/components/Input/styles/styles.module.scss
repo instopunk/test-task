@@ -1,0 +1,14 @@
+.input {
+  --focus-brodrder-color: var(--Semantic-Success-Tertiary);
+
+  padding: 7px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--Semantic-Stroke-Variable-Primary);
+  background: var(--Semantic-Fill-Variable-Primary);
+  outline: none;
+
+  &:focus-visible {
+    border-color: var(--focus-brodrder-color);
+    outline: 1px solid var(--focus-brodrder-color);
+  }
+}

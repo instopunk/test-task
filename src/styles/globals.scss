@@ -1,0 +1,23 @@
+@use 'node_modules/normalize.css/normalize.css';
+@use "./layout";
+@use "./pallete";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font: 15px/1.2 Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: top;
+}
+
+
